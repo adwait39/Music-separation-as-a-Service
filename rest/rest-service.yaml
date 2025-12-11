@@ -1,0 +1,12 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: rest-service
+spec:
+  type: NodePort
+  selector:
+    app: rest
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30500

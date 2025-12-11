@@ -1,0 +1,15 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install dependencies
+RUN pip install --no-cache-dir flask redis minio jsonpickle requests
+
+# Copy application
+COPY rest-server.py .
+
+# Expose port
+EXPOSE 5000
+
+# Run the application
+CMD ["python", "rest-server.py"]

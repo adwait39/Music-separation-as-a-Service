@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest
+  template:
+    metadata:
+      labels:
+        app: rest
+    spec:
+      containers:
+      - name: rest
+        image: adwait393/msaas-rest:v2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        env:
+        - name: REDIS_HOST
+          value: "redis"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: MINIO_HOST
+          value: "minio-proj.minio-ns.svc.cluster.local:9000"
+        - name: MINIO_ACCESS_KEY
+          value: "193i3rUfuAZpj2RAwfuO"
+        - name: MINIO_SECRET_KEY
+          value: "zoewcjhzPIg9GlZBTUhUbF3aokeFCKCVQOHYtGb0"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
