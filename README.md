@@ -1,4 +1,4 @@
-# lab7-music-separation-kubernetes
+# Music-separation-kubernetes
 ![separation](images/music_separation.png)
 Music-Separation-as-a-service (MSaaS)
 ## Overview
